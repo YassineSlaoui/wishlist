@@ -8,13 +8,12 @@
       <li *ngFor="let item of items">
         <div class="form-check">
           <label class="form-check-label">
-            <div *ngIf="item.isComplete; then completeItem; else incompleteItem"></div>
-            <ng-template #completeItem>
-              <input type="checkbox" class="checkbox" checked /> {{ item.wishText }}
-            </ng-template>
-            <ng-template #incompleteItem>
-              <input type="checkbox" class="checkbox" /> {{ item.wishText }}
-            </ng-template>
+            <input
+              type="checkbox"
+              class="checkbox"
+              [checked]="item.isComplete"
+            />
+            {{ item.wishText }}
           </label>
         </div>
       </li>
