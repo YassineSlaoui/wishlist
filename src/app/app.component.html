@@ -1,9 +1,7 @@
 <div class="container">
-  <div *ngIf="items.length === 0; then noItems; else showItems"></div>
-
-  <ng-template #noItems>
+  <div *ngIf="items.length === 0; else showItems">
     There are no wishes to diplay. 
-  </ng-template>
+  </div>
 
   <ng-template #showItems>
     <ul class="wish-list" *ngIf="items.length > 0">
