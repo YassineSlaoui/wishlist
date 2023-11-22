@@ -1,6 +1,6 @@
 <div class="container">
   <div *ngIf="items.length === 0; else showItems">
-    There are no wishes to diplay. 
+    There are no wishes to diplay.
   </div>
 
   <ng-template #showItems>
@@ -8,9 +8,13 @@
       <li *ngFor="let item of items">
         <div class="form-check">
           <label class="form-check-label">
-            <input *ngIf="item.isComplete" type="checkbox" class="checkbox" checked/> 
-            <input *ngIf="!item.isComplete" type="checkbox" class="checkbox"/> 
-            {{ item.wishText }}
+            <div *ngIf="item.isComplete; then completeItem; else incompleteItem"></div>
+            <ng-template #completeItem>
+              <input type="checkbox" class="checkbox" checked /> {{ item.wishText }}
+            </ng-template>
+            <ng-template #incompleteItem>
+              <input type="checkbox" class="checkbox" /> {{ item.wishText }}
+            </ng-template>
           </label>
         </div>
       </li>
