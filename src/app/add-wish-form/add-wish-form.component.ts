@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WishItem } from '../../shared/models/wishItem';
 import { FormsModule } from '@angular/forms';
@@ -12,12 +12,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class AddWishFormComponent {
 
-  @Input() @Output() wishes: WishItem[] = [];
+  @Output() addWish = new EventEmitter<WishItem>;
 
   newWishText = '';
 
   addNewWish() {
-    this.wishes.push(new WishItem(this.newWishText));
+    this.addWish.emit(new WishItem(this.newWishText));
     this.newWishText = '';
   }
 
