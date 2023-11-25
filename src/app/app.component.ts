@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { WishItem } from '../shared/models/wishItem';
 import { FormsModule } from '@angular/forms';
 import { WishListComponent } from './wish-list/wish-list.component';
+import { AddWishFormComponent } from './add-wish-form/add-wish-form.component';
 
 const filters = [
   (item: WishItem) => item,
@@ -14,7 +15,7 @@ const filters = [
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FormsModule, WishListComponent],
+  imports: [CommonModule, RouterOutlet, FormsModule, WishListComponent, AddWishFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -28,16 +29,9 @@ export class AppComponent {
 
   listFilter: any = '0';
 
-  newWishText = ''; //This is litterally bound to the New Wish Text Input field using the [(ngModel)] Directive
-
   title = 'Wishlist';
 
   get visibleItems(): WishItem[] {
     return this.items.filter(filters[Number.parseInt(this.listFilter)]);
-  }
-
-  addNewWish() {
-    this.items.push(new WishItem(this.newWishText));
-    this.newWishText = '';
   }
 }

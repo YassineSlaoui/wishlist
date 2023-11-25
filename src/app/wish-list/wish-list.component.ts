@@ -14,8 +14,6 @@ export class WishListComponent {
   @Input() wishes: WishItem[] = [];
 
   toggleItem(item: WishItem) {
-    console.log("Item \"" + item.wishText + "\" was previously " + item.isComplete);
     item.isComplete = !item.isComplete;
-    console.log("Now is " + item.isComplete);
   }
 }
