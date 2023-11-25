@@ -4,6 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { WishItem } from '../shared/models/wishItem';
 import { FormsModule } from '@angular/forms';
 
+const filters = [
+  (item: WishItem) => item,
+  (item: WishItem) => !item.isComplete,
+  (item: WishItem) => item.isComplete
+]
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -11,6 +17,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
   items: WishItem[] = [
     new WishItem('Learn Angular Framework :)'),
@@ -18,34 +25,24 @@ export class AppComponent {
     new WishItem('Do Good')
   ];
 
-  listFilter: String = '0';
+  listFilter: any = '0';
 
   newWishText = ''; //This is litterally bound to the New Wish Text Input field using the [(ngModel)] Directive
 
   title = 'Wishlist';
 
-  visibleItems: WishItem[] = this.items;
+  get visibleItems(): WishItem[] {
+    return this.items.filter(filters[Number.parseInt(this.listFilter)]);
+  }
 
   addNewWish() {
     this.items.push(new WishItem(this.newWishText));
     this.newWishText = '';
-    this.filterChanged(this.listFilter);
-  }
-
-  filterChanged(value: any) {
-    console.log(value);
-    if (this.listFilter === '0')
-      this.visibleItems = this.items;
-    else if (this.listFilter === '1')
-      this.visibleItems = this.items.filter(item => !item.isComplete)
-    else
-      this.visibleItems = this.items.filter(item => item.isComplete)
   }
 
   toggleItem(item: WishItem) {
     console.log("Item \"" + item.wishText + "\" was previously " + item.isComplete);
     item.isComplete = !item.isComplete;
     console.log("Now is " + item.isComplete);
-    this.filterChanged(this.listFilter);
   }
 }
