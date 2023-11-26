@@ -16,6 +16,10 @@ export class WishListItemComponent {
 
   @Input() wishText!: string;
 
+  get cssClasses() {
+    // return this.fulfilled ? ['strikeout', 'text-muted'] : [];
+    return { 'strikeout text-muted': this.fulfilled };
+  }
 
   toggleFulfilled() {
     this.fulfilled = !this.fulfilled;
