@@ -22,5 +22,5 @@ export class AppComponent {
     new WishItem('Do Good')
   ];
 
-  filter: any = () => { };
+  filter: any;
 }
