@@ -21,6 +21,6 @@ export class AppComponent {
     new WishItem('Get Coffee', true),
     new WishItem('Do Good')
   ];
-  
-  filter: any;
+
+  filter: any = () => { };
 }
