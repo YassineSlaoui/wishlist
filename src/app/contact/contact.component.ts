@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -14,13 +14,17 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class ContactComponent {
 
-  senderNameControl = new FormControl('');
-  senderEmailControl = new FormControl('');
-  senderMessageControl = new FormControl('');
+  contactForm = new FormGroup({
+    senderName: new FormControl(''),
+    senderEmail: new FormControl(''),
+    senderMessage: new FormControl('')
+  })
 
   submitForm() {
-    if (this.senderNameControl.dirty)
-      alert('Name changed')
+    console.log(this.contactForm);
+    
+    // if (this.senderNameControl.dirty)
+    //   alert('Name changed')
   }
 
 }
