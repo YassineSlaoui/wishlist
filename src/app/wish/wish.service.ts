@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { WishItem } from '../shared/models/wishItem';
+import { WishItem } from '../../shared/models/wishItem';
 import { catchError, throwError } from 'rxjs';
 
 @Injectable({
@@ -27,7 +27,7 @@ export class WishService {
       }
     });
 
-    return this.http.get('assets/wishes1.json', options).pipe(catchError(this.handleError));
+    return this.http.get('assets/wishes.json', options).pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {
