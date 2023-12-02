@@ -3,21 +3,18 @@ import { CommonModule } from '@angular/common';
 import { AddWishFormComponent } from './add-wish-form/add-wish-form.component';
 import { WishFilterComponent } from './wish-filter/wish-filter.component';
 import { WishListComponent } from './wish-list/wish-list.component';
-
+import { WishComponent } from './wish.component';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    WishListComponent,
-    AddWishFormComponent,
-    WishFilterComponent
+    WishComponent
   ],
   exports: [
-    WishListComponent,
-    AddWishFormComponent,
-    WishFilterComponent
+    WishComponent
   ]
 })
+
 export class WishModule { }
