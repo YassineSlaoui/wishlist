@@ -9,7 +9,7 @@ import { WishListComponent } from './wish-list/wish-list.component';
 import { AddWishFormComponent } from './add-wish-form/add-wish-form.component';
 
 @Component({
-  selector: 'wish-app',
+  selector: 'app-wish',
   standalone: true,
   imports: [CommonModule, WishFilterComponent, WishListComponent, AddWishFormComponent],
   templateUrl: './wish.component.html',
