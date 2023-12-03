@@ -1,6 +1,6 @@
-import { AbstractControl, ValidationErrors } from "@angular/forms";
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
-export function invalidEmailDomain(invalidDomains: string[]): (control: AbstractControl) => ValidationErrors | null {
+export function invalidEmailDomain(invalidDomains: string[]): ValidatorFn {
     return (control: AbstractControl) => {
         const value = control.value?.toLowerCase();
 
