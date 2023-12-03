@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -15,14 +15,28 @@ import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 export class ContactComponent {
 
   contactForm = new FormGroup({
-    senderName: new FormControl(''),
-    senderEmail: new FormControl(''),
-    senderMessage: new FormControl('')
+    senderName: new FormControl('', Validators.required),
+    senderEmail: new FormControl('', [Validators.required, Validators.email]),
+    senderMessage: new FormControl('', [Validators.required, Validators.minLength(10)])
   })
 
-  submitForm() {
-    console.log(this.contactForm);
+  // isValid(controlName: string): any {
+  //   let control = this.contactForm.get(controlName);
+  //   console.log(control?.errors);
     
+  //   return control?.errors == null ? true : control?.errors['keys']()[0][0];
+  // }
+
+  submitForm() {
+
+
+    // console.log(this.contactForm.get('senderName'));
+    
+    // console.log(this.isValid('senderName'));
+
+    // console.log(this.contactForm);
+    // console.log(this.contactForm.get('senderEmail')?.errors);
+
     // if (this.senderNameControl.dirty)
     //   alert('Name changed')
   }
