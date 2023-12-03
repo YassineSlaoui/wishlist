@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { WishModule } from './wish/wish.module';
 import { ContactModule } from './contact/contact.module';
 
@@ -19,5 +19,11 @@ import { ContactModule } from './contact/contact.module';
 })
 
 export class AppComponent {
+  constructor(private router: Router) {
+  }
+
+  goToContact() {
+    this.router.navigate(['contact']);
+  }
 
 }
