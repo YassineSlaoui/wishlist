@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { WishModule } from './wish/wish.module';
 import { ContactModule } from './contact/contact.module';
 
@@ -11,7 +11,8 @@ import { ContactModule } from './contact/contact.module';
     CommonModule,
     RouterOutlet,
     WishModule,
-    ContactModule
+    ContactModule,
+    RouterModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
