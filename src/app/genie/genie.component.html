@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="row" *ngFor="let genie of genies">
+      <h4>
+        <a [routerLink]="['/genies',genie.id]">{{ genie.name }}</a>
+      </h4>
+    </div>
+  </div>
+  
